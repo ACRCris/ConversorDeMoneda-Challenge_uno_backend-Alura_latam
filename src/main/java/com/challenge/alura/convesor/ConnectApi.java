@@ -9,15 +9,15 @@ import java.util.concurrent.Future;
 
 public class ConnectApi {
 
-    private String url_str = "https://v6.exchangerate-api.com/v6/eb8f29e31a92e860b1454f9a/pair/";
     private Future<HttpResponse<String>> response;
     private Double conversionRate;
-    private Map<String, String> moneda_isoCode = Map.of("Dólar", "USD", "Euro", "EUR", "Peso Mexicano", "MXN", "Peso Colombiano", "COP", "Peso Argentino",
+    private final Map<String, String> moneda_isoCode = Map.of("Dólar", "USD", "Euro", "EUR", "Peso Mexicano", "MXN", "Peso Colombiano", "COP", "Peso Argentino",
             "ARS", "Libra Esterlina", "GBP", "Yen Japones", "JPY", "Yuan Chino", "CNY");
 
     public Future<HttpResponse<String>> getApiResponse(String monedaDePartida, String monedaDeDestino) {
 
         System.out.println("Moneda de partida: " + monedaDePartida + " Moneda de destino: " + monedaDeDestino);
+        String url_str = "https://v6.exchangerate-api.com/v6/eb8f29e31a92e860b1454f9a/pair/";
         System.out.println("URL: " + url_str + moneda_isoCode.get(monedaDePartida) + "/" + moneda_isoCode.get(monedaDeDestino));
         try {
             HttpClient client = HttpClient.newHttpClient();

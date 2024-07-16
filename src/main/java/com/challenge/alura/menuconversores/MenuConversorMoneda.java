@@ -1,6 +1,7 @@
 package com.challenge.alura.menuconversores;
 
 import javax.swing.*;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -19,7 +20,9 @@ public class MenuConversorMoneda {
         optionPane.setMessage("Seleccione la moneda de partida:");
         optionPane.createDialog("Conversor de Moneda").setVisible(true);
 
-        monedaDePartida = ((String) optionPane.getInputValue()).split(". ")[1];
+        monedaDePartida = ((String) optionPane.getInputValue()).split("\\. ")[1];
+
+
 
 
 
@@ -50,7 +53,7 @@ public class MenuConversorMoneda {
             optionPane.setSelectionValues(monedas.toArray());
             optionPane.setMessage("Seleccione la moneda de destino:");
             optionPane.createDialog("Conversor de Moneda").setVisible(true);
-            monedaDeDestino = ((String) optionPane.getInputValue()).split(". ")[1];
+            monedaDeDestino = ((String) optionPane.getInputValue()).split("\\. ")[1];
             if (monedaDeDestino.equalsIgnoreCase(monedaDePartida)) {
                 JOptionPane.showMessageDialog(null,
                         "La moneda de destino no puede ser la misma que la moneda de partida");

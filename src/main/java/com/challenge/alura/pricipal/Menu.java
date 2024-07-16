@@ -36,7 +36,7 @@ public class Menu {
             MenuConversorMoneda.mostrarMenuMonedaDePartida(monedas);
             String monedaDePartida  = MenuConversorMoneda.getMonedaDePartida();
             monedas.stream()
-                    .map(s ->s.toLowerCase().split(". ")[1])
+                    .map(s ->s.toLowerCase().split("\\. ")[1])
                     .filter(s -> s.equals(monedaDePartida))
                     .forEach(MenuConversorMoneda::mostrarMenuCantidad);
 
